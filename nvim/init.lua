@@ -273,6 +273,23 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Git remaps
 vim.keymap.set('n', '<leader>gd', '<cmd>Git diff<CR>')
 vim.keymap.set('n', '<leader>gp', '<cmd>Git push<CR>')
+vim.keymap.set('n', '<leader>gs', '<cmd>Git status<CR>')
+
+local get_commit_message = function()
+  local on_confirm = function(input)
+    if input == "" or input == nil then
+      return
+    end
+
+    vim.cmd('Git commit -am "'..input..'"')
+  end
+
+  vim.ui.input({
+    prompt = "Commit message: "
+  }, on_confirm)
+end
+
+vim.keymap.set('n', '<leader>gm', get_commit_message, { desc = "Commit all changed files in current directory" })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
