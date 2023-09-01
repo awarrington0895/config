@@ -239,7 +239,8 @@ vim.opt.guicursor = "n-v-c-i:block"
 
 -- [[ Basic Keymaps ]]
 
-vim.keymap.set("x", "<leader>p", [["_dP]])
+-- Not sure on this one
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 
 -- Easy exit
 vim.keymap.set('i', 'jj', '<Esc>')
