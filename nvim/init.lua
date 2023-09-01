@@ -32,7 +32,7 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'ThePrimeagen/harpoon',
-
+  'inkarkat/vim-ReplaceWithRegister',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   {
@@ -245,8 +245,24 @@ vim.opt.guicursor = "n-v-c-i:block"
 
 -- [[ Basic Keymaps ]]
 
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
+-- Easy exit
 vim.keymap.set('i', 'jj', '<Esc>')
+
+-- TmuxSessionizer
 vim.keymap.set('n', '<C-f>', "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
+-- Better experience for browsing code
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Center when jumping to search results
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("n", "<leader>o", "o<Esc>")
+vim.keymap.set("n", "<leader>O", "O<Esc>")
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -410,7 +426,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+  nmap('gfr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
