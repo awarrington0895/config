@@ -20,19 +20,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- NOTE: Here is where you install your plugins.
---  You can configure plugins using the `config` key.
---
---  You can also configure plugins after the setup call,
---    as they will be available in your neovim runtime.
+-- Plugins
 require('lazy').setup({
-  -- NOTE: First, some plugins that don't require any configuration
-
-  -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'ThePrimeagen/harpoon',
   'inkarkat/vim-ReplaceWithRegister',
+  'jiangmiao/auto-pairs',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   {
