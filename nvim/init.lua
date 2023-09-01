@@ -40,7 +40,7 @@ require('lazy').setup({
     version = "*",
     lazy = false,
     keys = {
-      { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Toggle Nvim Tree" }
+      { id = "nvim-toggle", "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Toggle Nvim Tree" }
     },
     dependencies = {
       "nvim-tree/nvim-web-devicons",
