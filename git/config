@@ -3,4 +3,5 @@
 	name = Alex Warrington
 [alias]
 	s = status
-    co = checkout
+	co = checkout
+	cm = commit -am
