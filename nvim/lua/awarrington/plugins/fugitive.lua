@@ -1,4 +1,4 @@
-local get_commit_message = function()
+local function commit()
   local on_confirm = function(input)
     if input == "" or input == nil then
       return
@@ -22,6 +22,6 @@ return {
     vim.keymap.set('n', '<leader>gs', '<cmd>Git status<CR>')
     vim.keymap.set('n', '<leader>ga', '<cmd>Git add -A<CR>')
 
-    vim.keymap.set('n', '<leader>gm', get_commit_message, { desc = "Commit all changed files in current directory" })
+    vim.keymap.set('n', '<leader>gm', commit, { desc = "Commit all changed files in current directory" })
   end
 }

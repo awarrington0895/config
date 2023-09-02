@@ -33,26 +33,6 @@ require('lazy').setup({
   'jiangmiao/auto-pairs',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    keys = {
-      { id = "nvim-toggle", "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Toggle Nvim Tree" }
-    },
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("nvim-tree").setup {
-        actions = {
-          open_file = {
-            quit_on_open = true
-          }
-        }
-      }
-    end,
-  },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
