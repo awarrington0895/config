@@ -3,6 +3,9 @@
 -- Not sure on this one
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 
+-- Write
+vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = "Write current buffer" })
+
 -- Easy exit
 vim.keymap.set('i', 'jj', '<Esc>')
 

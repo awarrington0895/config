@@ -190,7 +190,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'awarrington.plugins' },
 }, {})
 
 -- Git remaps
@@ -238,29 +238,6 @@ require('telescope').setup {
     },
   },
 }
-
--- harpoon
-vim.keymap.set('n', '<leader>h', require('harpoon.mark').toggle_file, { desc = 'Toggle mark file for [h]arpoon' })
-vim.keymap.set('n', '<leader>H', require('harpoon.ui').toggle_quick_menu, { desc = 'View marked harpoon files' })
-vim.keymap.set('n', '<leader>hd', require('harpoon.mark').clear_all, { desc = 'Remove all marked files' })
-vim.keymap.set(
-  'n',
-  '<A-j>',
-  function()
-    require('harpoon.ui').nav_file(1)
-  end
-  ,
-  { desc = 'Go to first marked file' }
-)
-vim.keymap.set(
-  'n',
-  '<A-k>',
-  function()
-    require('harpoon.ui').nav_file(2)
-  end
-  ,
-  { desc = 'Go to second marked file' }
-)
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
