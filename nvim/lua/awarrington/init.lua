@@ -28,7 +28,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins
 require('lazy').setup({
   'tpope/vim-rhubarb',
-  'ThePrimeagen/harpoon',
   'inkarkat/vim-ReplaceWithRegister',
   'jiangmiao/auto-pairs',
   -- Detect tabstop and shiftwidth automatically
@@ -53,21 +52,6 @@ require('lazy').setup({
     },
   },
 
-  {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
-    },
-  },
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
@@ -325,6 +309,8 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+
+  nmap('<leader>=', '<cmd>Format<CR>', 'Format current buffer')
 end
 
 --  Add any additional override configuration in the following tables. They will be passed to
