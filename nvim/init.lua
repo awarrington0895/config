@@ -1,1 +1,2 @@
-require('awarrington')
+require('awarrington.core')
+require('awarrington.lazy')
